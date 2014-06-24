@@ -21,6 +21,10 @@ Game.prototype.winner = function() {
   }
 };
 
+Game.prototype.loser = function() {
+  return (this.winner() === this.player1) ? this.player2 : this.player1;
+};
+
 Game.prototype.PAIRS = {
 	rock:     { beats: ['scissors','lizard'] },
   paper:    { beats: ['rock', 'spock'] },
@@ -50,6 +54,39 @@ Game.prototype.isDraw = function() {
     return 'draw';
   };
 };
+
+Game.prototype.messageVerb = function() {
+
+  if ((this.winner().pick === 'rock') && (this.loser().pick === 'scissors' || 'lizard')) {
+    return 'crushes'
+  } else if ((this.winner().pick === 'scissors') && (this.loser().pick === 'paper')) {
+    return 'cuts'
+  } else if ((this.winner().pick === 'scissors') && (this.loser().pick === 'lizard')) {
+    return 'decapitates'
+   } else if ((this.winner().pick === 'spock') && (this.loser().pick === 'scissors')) {
+    return 'smashes'
+   } else if ((this.winner().pick === 'spock') && (this.loser().pick === 'rock')) {
+    return 'vapourises'
+  } else if ((this.winner().pick === 'lizard') && (this.loser().pick === 'paper')) {
+    return 'eats'
+   } else if ((this.winner().pick === 'lizard') && (this.loser().pick === 'spock')) {
+    return 'poisons'
+  } else if ((this.winner().pick === 'paper') && (this.loser().pick === 'rock')) {
+    return 'covers'
+   } else if ((this.winner().pick === 'paper') && (this.loser().pick === 'spock')) {
+    return 'disproves'
+  };
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
