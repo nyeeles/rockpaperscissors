@@ -78,7 +78,10 @@ Game.prototype.messageVerb = function() {
   };
 };
 
-
+Game.prototype.winningMessage = function() {
+  var message = [this.winnerName(), this.messageVerb(), this.loserName()];
+  return message.join(" ");
+};
 
 
 

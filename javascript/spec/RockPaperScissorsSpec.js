@@ -292,6 +292,24 @@ describe("Rock-Paper-Scissors", function() {
         player2.picks('rock');
         expect(game.messageVerb()).toEqual('covers');
       });
+    
+       it("winner name, then correct verb, then loser name", function() {
+        player1.picks('paper');
+        player2.picks('rock');
+        expect(game.winningMessage()).toEqual("Alex covers Bob");
+       });
+
+       it("winner name, then correct verb, then loser name", function() {
+        player1.picks('spock');
+        player2.picks('scissors');
+        expect(game.winningMessage()).toEqual("Alex smashes Bob");
+       });
+
+       it("winner name, then correct verb, then loser name", function() {
+        player1.picks('spock');
+        player2.picks('lizard');
+        expect(game.winningMessage()).toEqual("Bob poisons Alex");
+       });
     });
 
   });
