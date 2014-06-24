@@ -6,12 +6,46 @@
 	<h1>Rock Paper Scissors Spock Lizard</h1>
 	<table class="container">
 		<tr>
-			<td><img src="/images/spock.png" data-pick="spock"></td>
+			<td><img src="/images/spock.png" id="spock" data-pick="spock"></td>
 			<td><img src="/images/scissors.png" data-pick="scissors"></td>
 			<td><img src="/images/rock.png" data-pick="rock"></td>
 			<td><img src="/images/lizard.png" data-pick="lizard"></td>
 			<td><img src="/images/paper.png" data-pick="paper"></td>
+			<!-- <button id="button">Result</button> -->
 		</tr>
 	</table>
+
 	<script src="/lib/RockPaperScissors.js"></script>
+	<script src="/lib/jquery-2.1.1.min.js"></script>
+	<script>
+
+		var player1 = new Player('player1');
+		var player2 = new Player('player2');
+		var game = new Game(player1, player2);
+		this.player1.picks('rock');
+		var player2Selection;
+	
+		$("img[data-pick='spock']").on("click", function() {
+			$player2Selection = "spock";
+			
+		});
+
+		$("img[data-pick='scissors']").on("click", function() {
+			$player2Selection = "scissors";
+			
+		});
+
+		this.player2.picks(player2Selection);
+		// this.player2.picks("<p>" + player2Selection + "<p>");
+		var message = this.game.winningMessage();
+
+		var newItem = $(message);
+		newItem.appendTo('.container');
+
+		// $("#button").on("click", function() {
+		// var newItem = $("<p>" + message + "</p>");
+		// newItem.appendTo('.container');
+		// alert($player2Selection)
+		// });
+	</script>
 </body>
