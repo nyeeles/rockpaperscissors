@@ -32,3 +32,25 @@ Game.prototype.PAIRS = {
 Game.prototype._isSamePick = function() {
 	return this.player1.pick === this.player2.pick;
 };
+
+Game.prototype.winnerName = function() {
+  if (this.winner() === this.player1) {
+    return this.player1.name;
+  } else {
+    return this.player2.name;
+  };
+};
+
+Game.prototype.loserName = function() {
+  return (this.winnerName() === this.player1.name) ? this.player2.name : this.player1.name;
+};
+
+Game.prototype.isDraw = function() {
+  if(this.winner() === null) {
+    return 'draw';
+  };
+};
+
+
+
+

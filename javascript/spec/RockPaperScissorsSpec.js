@@ -201,4 +201,37 @@ describe("Rock-Paper-Scissors", function() {
 
   });
 
+  describe('winners message', function() {
+
+    describe('should say', function() {
+
+      it('winners name', function() {
+
+        player1.picks('rock');
+        player2.picks('scissors');
+        expect(game.winnerName()).toEqual(player1.name);
+        player1.picks('scissors');
+        player2.picks('rock');
+        expect(game.winnerName()).toEqual(player2.name);
+      });
+
+      it('losers name', function() {
+
+        player1.picks('rock');
+        player2.picks('scissors');
+        expect(game.loserName()).toEqual(player2.name);
+        player1.picks('scissors');
+        player2.picks('rock');
+        expect(game.loserName()).toEqual(player1.name);
+      });
+
+      it("'draw' if no player wins", function() {
+        player1.picks('rock');
+        player2.picks('rock');
+        expect(game.isDraw()).toEqual('draw');
+      });
+    });
+  });
+
 });
+
